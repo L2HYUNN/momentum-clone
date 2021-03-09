@@ -29,6 +29,7 @@ function deleteToDo(event){
     // calToDos = 1;
 
     saveToDos();
+
 }
 
 function saveToDos(){
