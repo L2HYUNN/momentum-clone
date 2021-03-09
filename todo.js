@@ -9,17 +9,26 @@ function filterFn(toDo){
 }
 
 let toDos = [];
+let calToDos = 1;
 
-function deleteToDo(event){
+
+function deleteToDo(event){  
     const btn = event.target;
     const li = btn.parentNode;
     toDoList.removeChild(li);
     const cleanToDos = toDos.filter(function(toDo){
+        
         return toDo.id !== parseInt(li.id);
     });
     toDos = cleanToDos;
-    saveToDos();
 
+    // toDos.forEach(function(toDo){
+    //     toDo.id = calToDos;
+    //     calToDos++;
+    // });
+    // calToDos = 1;
+
+    saveToDos();
 }
 
 function saveToDos(){
@@ -55,8 +64,7 @@ function handleSubmit(event){
 
 
 
-function loadToDos()
-{
+function loadToDos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if(loadedToDos !== null){
         const parsedToDos = JSON.parse(loadedToDos);
